@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Lenasia Market | Sheet-to-Shop</title>
     
     <!-- PWA Meta Tags -->
@@ -74,10 +77,10 @@
          * Replace SHEET_URL with your published Google Sheet CSV link.
          * Expected Columns: Name, Category, Price, Image, Description
          */
-        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-kfOr1fxGM-TTjzTKX5luhrIA3ejigYuj_NzoDf7VXcqyYED-jWaEbxKxEutN0im65GkuJhkwfc5O/pub?output=csv'; 
+        const SHEET_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vR-kfOr1fxGM-TTjzTKX5luhrIA3ejigYuj_NzoDf7VXcqyYED-jWaEbxKxEutN0im65GkuJhkwfc5O/pub?output=csv'; 
         
         // The WhatsApp number (South Africa format without +)
-        const WA_PHONE = '27820000000'; 
+        const WA_PHONE = '27633546954'; 
         
         // Fallback Image if URL is broken/missing
         const PLACEHOLDER_IMG = 'https://placehold.co/400x400/1f2937/FFF?text=No+Image';
@@ -503,3 +506,16 @@
     </script>
 </body>
 </html>
+<!-- Updated: 2025-12-15 12:00:00 UTC -->
+name: Cache Control
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy with no-cache
+        run: |
+          echo "index.html" >> _config.yml
